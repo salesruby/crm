@@ -1,14 +1,13 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
-use DB;
-use Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -55,8 +54,8 @@ class UserController extends Controller
 
 
         $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-
+//        $input['password'] = Hash::make($input['password']);
+        $input['password'] = bcrypt($input['password']);
 
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
@@ -116,15 +115,16 @@ class UserController extends Controller
 
         $input = $request->all();
         if(!empty($input['password'])){
-            $input['password'] = Hash::make($input['password']);
+            $input['password'] = bcrypt($input['password']);
         }else{
-            $input = array_except($input,array('password'));
+            $input = Arr::except($input,['password']);
         }
 
 
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
+
 
 
         $user->assignRole($request->input('roles'));
