@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Product;
-use Illuminate\Http\Request;
 
 
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * ProductController constructor.
      */
     function __construct()
     {
@@ -43,22 +41,14 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ProductRequest $request
+     * @return $this
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
-
-
-        Product::create($request->all());
+        $input = $request->validated();
+        Product::create($input);
 
 
         return redirect()->route('products.index')
@@ -91,21 +81,16 @@ class ProductController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param ProductRequest $request
+     * @param Product $product
+     * @return $this
      */
-    public function update(Request $request, Product $product)
+
+    public function update(ProductRequest $request, Product $product)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
+        $input = $request->validated();
 
-
-        $product->update($request->all());
+        $product->update($input);
 
 
         return redirect()->route('products.index')

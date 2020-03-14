@@ -30,3 +30,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('leads','LeadController');
     Route::resource('products','ProductController');
 });
+

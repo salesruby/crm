@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LeadRequest;
 use App\Lead;
-use Illuminate\Http\Request;
 
 
 class LeadController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * LeadController constructor.
      */
     function __construct()
     {
@@ -43,22 +41,14 @@ class LeadController extends Controller
         return view('leads.create');
     }
 
-
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param LeadRequest $request
+     * @return $this
      */
-    public function store(Request $request)
+    public function store(LeadRequest $request)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
-
-
-        Lead::create($request->all());
+        $input = $request->validated();
+        Lead::create($input);
 
 
         return redirect()->route('leads.index')
@@ -91,21 +81,15 @@ class LeadController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Lead  $lead
-     * @return \Illuminate\Http\Response
+     * @param LeadRequest $request
+     * @param Lead $lead
+     * @return $this
      */
-    public function update(Request $request, Lead $lead)
+    public function update(LeadRequest $request, Lead $lead)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
+        $input = $request->validated();
 
-
-        $lead->update($request->all());
+        $lead->update($input);
 
 
         return redirect()->route('leads.index')
