@@ -26,6 +26,7 @@
                 <strong>Email:</strong>
                 {{ $user->email }}
             </div>
+            {{dump($leads)}}
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">

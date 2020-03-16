@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
+use App\Lead;
 
 
 class UserController extends Controller
@@ -54,7 +55,6 @@ class UserController extends Controller
 
 
         $input = $request->all();
-//        $input['password'] = Hash::make($input['password']);
         $input['password'] = bcrypt($input['password']);
 
         $user = User::create($input);
@@ -75,7 +75,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        $leads = Lead::where("sales_rep_id", $id)->get();
+        return view('users.show',compact(['user', 'leads']));
     }
 
 

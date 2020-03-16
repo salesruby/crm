@@ -24,8 +24,15 @@ class LeadRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|max:20',
+            'company_name' => 'required',
+            'lead_designation' => 'required',
+            'product' => 'required',
+            'sales_rep_id'=> 'required|integer',
+            'status'  => 'required'
         ];
     }
 }

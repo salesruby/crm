@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LeadRequest;
 use App\Lead;
+use App\Product;
+use App\User;
 
 
 class LeadController extends Controller
@@ -38,7 +40,9 @@ class LeadController extends Controller
      */
     public function create()
     {
-        return view('leads.create');
+        $rep = User::role('Sales')->get();
+        $products = Product::all();
+        return view('leads.create', compact(['rep','products']));
     }
 
     /**

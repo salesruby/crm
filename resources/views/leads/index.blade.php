@@ -33,7 +33,7 @@
         @foreach ($leads as $lead)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $lead->name }}</td>
+                <td>{{ $lead->first_name }} {{ $lead->last_name }}</td>
                 {{--<td>{{ $lead->detail }}</td>--}}
                 <td>
                     <form action="{{ route('leads.destroy',$lead->id) }}" method="POST">

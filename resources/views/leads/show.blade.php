@@ -18,7 +18,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                {{ $lead->name }}
+                {{ $lead->first_name }} {{ $lead->last_name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
