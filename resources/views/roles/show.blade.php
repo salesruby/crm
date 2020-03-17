@@ -2,17 +2,16 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Role</h2>
+    <div class="page-title-box">
+        <div class="row">
+            <div class="col-sm-11">
+                <h5>Role Details</h5>
             </div>
-            <div class="pull-right">
+            <span class="pull-right">
                 <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            </div>
+            </span>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">

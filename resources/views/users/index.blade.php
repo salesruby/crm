@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h5>Users Management</h5>
+    <div class="page-title-box">
+        <div class="row">
+            <div class="col-sm-11">
+                <h5>Manage User </h5>
             </div>
         </div>
     </div>

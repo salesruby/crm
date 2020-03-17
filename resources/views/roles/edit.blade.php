@@ -2,17 +2,16 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Role</h2>
+    <div class="page-title-box">
+        <div class="row">
+            <div class="col-sm-11">
+                <h5>Edit Role</h5>
             </div>
-            <div class="pull-right">
+            <span class="pull-right">
                 <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            </div>
+            </span>
         </div>
     </div>
-
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">

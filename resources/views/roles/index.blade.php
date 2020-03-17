@@ -2,16 +2,17 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Role Management</h2>
+    <div class="page-title-box">
+        <div class="row">
+            <div class="col-sm-11">
+                <h5>Role Management</h5>
             </div>
-            <div class="pull-right">
-                @can('role-create')
-                    <a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>
-                @endcan
-            </div>
+            {{--@can('role-create')--}}
+                {{--<a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>--}}
+            {{--@endcan--}}
+            <span class="pull-right">
+                <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+            </span>
         </div>
     </div>
 

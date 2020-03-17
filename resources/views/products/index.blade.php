@@ -2,13 +2,14 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h5>Products</h5>
+    <div class="page-title-box">
+        <div class="row">
+            <div class="col-sm-12">
+                <h5>Manage Product</h5>
             </div>
         </div>
     </div>
+
 
 
     @if ($message = Session::get('success'))
@@ -51,4 +52,5 @@
 
 
     {!! $products->links() !!}
+
 @endsection

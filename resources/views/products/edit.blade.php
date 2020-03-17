@@ -2,16 +2,17 @@
 
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Product</h2>
+    <div class="page-title-box">
+        <div class="row">
+            <div class="col-sm-11">
+                <h5>Edit Product</h5>
             </div>
-            <div class="pull-right">
+            <span class="pull-right">
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-            </div>
+            </span>
         </div>
     </div>
+
 
 
     @if ($errors->any())

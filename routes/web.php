@@ -29,5 +29,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('leads','LeadController');
     Route::resource('products','ProductController');
+    Route::get('deals/open', 'DealController@open')->name('deals.open');
+    Route::get('deals/closed', 'DealController@closed' )->name('deals.closed');
+    Route::get('deals/deadline', 'DealController@deadline')->name('deals.deadline');
 });
 
