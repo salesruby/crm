@@ -32,7 +32,8 @@ class LeadRequest extends FormRequest
             'lead_designation' => 'required',
             'product' => 'required',
             'sales_rep_id'=> 'required|integer',
-            'status'  => 'required'
+            'next_dated_step' => 'required',
+            'expectation' => 'required'
         ];
     }
 }

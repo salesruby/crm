@@ -114,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong>Next Dated Step:</strong>
-                    <input class="form-control" type="date" name="next_dated_step"
+                    <input class="form-control" type="datetime-local" name="next_dated_step"
                            value="{{old("next_dated_step")}}" placeholder="Next Dated Step">
                 </div>
             </div>
