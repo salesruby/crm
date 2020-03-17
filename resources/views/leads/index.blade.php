@@ -5,12 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Leads</h2>
-            </div>
-            <div class="pull-right">
-                @can('lead-create')
-                    <a class="btn btn-success" href="{{ route('leads.create') }}"> Create New Lead</a>
-                @endcan
+                <h5>Leads</h5>
             </div>
         </div>
     </div>
@@ -27,14 +22,12 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            {{--<th>Details</th>--}}
             <th width="280px">Action</th>
         </tr>
         @foreach ($leads as $lead)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $lead->first_name }} {{ $lead->last_name }}</td>
-                {{--<td>{{ $lead->detail }}</td>--}}
                 <td>
                     <form action="{{ route('leads.destroy',$lead->id) }}" method="POST">
                         <a class="btn btn-info" href="{{ route('leads.show',$lead->id) }}">Show</a>
@@ -56,7 +49,4 @@
 
 
     {!! $leads->links() !!}
-
-
-    <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
 @endsection

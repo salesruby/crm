@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -29,4 +28,3 @@
         </div>
     </div>
 @endsection
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>

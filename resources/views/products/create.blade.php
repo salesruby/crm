@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Product</h2>
+                <h5>Add New Product</h5>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
@@ -50,7 +50,4 @@
 
 
     </form>
-
-
-    <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
-@endsection
+    @endsection
