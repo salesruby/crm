@@ -29,10 +29,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('leads','LeadController');
     Route::resource('products','ProductController');
+    Route::resource('statuses','StatusController');
     Route::get('deals/open', 'DealController@open')->name('deals.open');
     Route::get('deals/closed', 'DealController@closed' )->name('deals.closed');
     Route::get('deals/deadline', 'DealController@deadline')->name('deals.deadline');
     Route::get('chats/form/{id}','ChatController@showForm')->name('chats.form');
     Route::post('chats/store','ChatController@storeChat')->name('chats.store');
+    Route::get('lead_status/form/{id}','LeadStatusController@showForm')->name('lead_status.form');
+    Route::post('lead_status/store','LeadStatusController@storeStatus')->name('lead_status.store');
 });
 

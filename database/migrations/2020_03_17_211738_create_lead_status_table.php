@@ -17,8 +17,8 @@ class CreateLeadStatusTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('lead_id');
             $table->unsignedInteger('status_id');
-            $table->foreign('lead_id')->references('id')->on('leads');
-            $table->foreign('status_id')->references('id')->on('statuses');
+            $table->foreign('lead_id')->references('id')->on('leads')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->timestamps();
         });
     }

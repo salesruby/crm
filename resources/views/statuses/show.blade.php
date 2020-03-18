@@ -8,7 +8,7 @@
                 <h2>Product Details</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('statuses.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -18,13 +18,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                {{ $product->name }}
+                {{ $status->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Descriptions:</strong>
-                {{ $product->description }}
+                {{ $status->description }}
             </div>
         </div>
     </div>

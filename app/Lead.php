@@ -10,7 +10,8 @@ class Lead extends Model
         'lead_designation', 'product', 'phone', 'sales_rep_id', 'next_dated_step', 'expectation'];
 
     public function statuses(){
-        return $this->belongsToMany(Status::class, 'lead_status', 'lead_id', 'status_id' );
+        return $this->belongsToMany(Status::class, 'lead_status', 'lead_id', 'status_id' )
+            ->latest('id')->limit(1);
     }
 
 }

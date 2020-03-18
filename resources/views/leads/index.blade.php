@@ -33,13 +33,17 @@
                     <td>{{ $lead->first_name }} {{ $lead->last_name }}</td>
                     <td>{{\App\Product::find($lead->product)->name}}</td>
                     <td>
-                        {{--{{$lead->status}}--}}
+                        @if(count($lead->statuses) > 0)
+                            {{$lead->statuses[0]->name}}
+                        @endif
                     </td>
+
                     <td>
 
                         <form action="{{ route('leads.destroy',$lead->id) }}" method="POST">
-                            <a class="btn btn-warning" href="{{ route('chats.form',$lead->id) }}">chat</a>
+                            <a class="btn btn-warning" href="{{ route('chats.form',$lead->id) }}">Chat</a>
                             <a class="btn btn-info" href="{{ route('leads.show',$lead->id) }}">Show</a>
+                            <a class="btn btn-default" href="{{ route('lead_status.form',$lead->id) }}">Status</a>
                             @can('lead-edit')
                                 <a class="btn btn-primary" href="{{ route('leads.edit',$lead->id) }}">Edit</a>
                             @endcan

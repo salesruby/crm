@@ -4,7 +4,7 @@
 
     <div class="page-title-box">
         <div class="row">
-            <h5 class="col-sm-11 ">Chat</strong></h5>
+            <h5 class="col-sm-11 ">Move Lead to Next Stage</h5>
             <span class="pull-right">
                 <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
             </span>
@@ -22,20 +22,21 @@
         </div>
     @endif
 
-    <form method="POST" action="{{route('chats.store')}}">
+    <form method="POST" action="{{route('lead_status.store')}}">
         @csrf
 
         <div class="row">
 
-            <input type="hidden" name="user_id" value="{{ $user->id  }}">
             <input type="hidden" name="lead_id" value="{{ $id }}">
-
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Summary:</strong>
-                    <textarea class="form-control" style="height:150px" name="summary"
-                              placeholder="Chat Summary" autofocus autocomplete="true">{{old('summary')}}</textarea>
+                    <label for="status_id">Status:</label>
+                    <select name="status_id">
+                        @foreach($statuses as $status)
+                            <option value="{{$status->id}}">{{$status->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

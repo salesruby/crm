@@ -210,6 +210,18 @@
                                     <li><a href="{{route('roles.index')}}">Manage Roles</a></li>
                                 </ul>
                             </li>
+
+                            <li class="{{Auth::user()->hasRole('Sales') ? 'hide' : ''}}">
+                                <a href="javascript:void(0);" class="waves-effect"><i
+                                            class="mdi mdi-orbit"></i> <span>Status<span
+                                                class="float-right menu-arrow"><i
+                                                    class="mdi mdi-chevron-right"></i></span> </span>
+                                </a>
+                                <ul class="submenu">
+                                    <li><a href="{{route('statuses.create')}}">Add Status</a></li>
+                                    <li><a href="{{route('statuses.index')}}">Manage Status</a></li>
+                                </ul>
+                            </li>
                         </ul>
 
                     </div>
