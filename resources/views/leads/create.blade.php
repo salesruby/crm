@@ -77,9 +77,9 @@
 
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
-                    <strong>Lead Designation:</strong>
-                    <input type="text" name="lead_designation" class="form-control"
-                           placeholder="Lead Designation" value="{{old("lead_designation")}}">
+                    <strong>Designation:</strong>
+                    <input type="text" name="designation" class="form-control"
+                           placeholder="Designation" value="{{old("designation")}}">
                 </div>
             </div>
 
@@ -87,9 +87,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="form-group">
                         <strong>Sales Rep</strong>
-                        <select name="sales_rep_id">
-                            @foreach($rep as $sales_rep)
-                                <option value={{$sales_rep->id}}>{{$sales_rep->name}}</option>
+                        <select name="user_id">
+
+                            @foreach($users as $user)
+                                <option value={{$user->id}}>{{$user->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -98,18 +99,45 @@
                 {{--<div class="col-xs-12 col-sm-12 col-md-6">--}}
                 {{--<div class="form-group">--}}
                 {{--<strong>Sales Rep : {{Auth::user()->name}}</strong>--}}
-                <input type="hidden" name="sales_rep_id" value="{{Auth::user()->id}}" class="form-control">
+                <input type="hidden" name="user_id" value={{$authenticated_user->id}} class="form-control">
                 {{--</div>--}}
                 {{--</div>--}}
             @endif
 
             <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <strong>Product Name:</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <strong>Product Expectation:</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($products as $product)
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <label>
+                                <input name="product_ids[]" value={{$product->id}} type="checkbox" />
+                                {{$product->name}}
+                            </label>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <span>{{$product->price}}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <!-- </div>
                 <div class="form-group">
-                    <strong>Expectation:</strong>
+                    <strong>Product:</strong>
+                    @foreach($products as $product)
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                        </div>
+                    @endforeach
                     <input class="form-control" type="number" name="expectation" value="{{old("expectation")}}"
                            placeholder="Enter Deal Expectation">
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
@@ -119,16 +147,16 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-6">
+            <!-- <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong>Product</strong>
-                    <select name="product">
+                    <select name="product_id[]" multiple>
                         @foreach($products as $product)
                             <option value={{$product->id}}>{{$product->name}}</option>
                         @endforeach
                     </select>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-xs-12 col-sm-12 col-md-4 ">
                 <button type="submit" class="btn btn-primary">Submit</button>

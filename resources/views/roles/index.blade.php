@@ -10,9 +10,6 @@
             {{--@can('role-create')--}}
                 {{--<a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>--}}
             {{--@endcan--}}
-            <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            </span>
         </div>
     </div>
 

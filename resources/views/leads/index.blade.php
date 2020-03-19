@@ -21,7 +21,7 @@
             <tr>
                 <th scope="col">S/N</th>
                 <th scope="col">Lead</th>
-                <th scope="col">Product</th>
+                {{--<th scope="col">Product</th>--}}
                 <th scope="col">Deal Status</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -31,12 +31,12 @@
                 <tr>
                     <td>{{ ++$i }}</td>
                     <td>{{ $lead->first_name }} {{ $lead->last_name }}</td>
-                    <td>{{\App\Product::find($lead->product)->name}}</td>
-                    <td>
-                        @if(count($lead->statuses) > 0)
-                            {{$lead->statuses[0]->name}}
-                        @endif
-                    </td>
+                    {{--<td>{{\App\Product::find($lead->product)->name}}</td>--}}
+                    {{--<td>--}}
+                        {{--@if(count($lead->statuses) > 0)--}}
+                            {{--{{$lead->statuses[0]->name}}--}}
+                        {{--@endif--}}
+                    {{--</td>--}}
 
                     <td>
 
