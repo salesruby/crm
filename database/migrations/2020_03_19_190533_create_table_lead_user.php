@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatusesTable extends Migration
+class CreateTableLeadUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('statuses', function (Blueprint $table) {
+        Schema::create('lead_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->longText('description');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('lead_id');
+            $table->foreign('lead_id')->references('id')->on('leads')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('lead_user');
     }
 }

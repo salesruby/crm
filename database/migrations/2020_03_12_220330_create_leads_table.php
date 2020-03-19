@@ -15,10 +15,13 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email');
-            $table->string('product');
-            $table->integer('phone');
+            $table->string('phone');
+            $table->string('company_name');
+            $table->string('designation');
+            $table->dateTime('next_dated_step')->default(now());
             $table->timestamps();
         });
     }

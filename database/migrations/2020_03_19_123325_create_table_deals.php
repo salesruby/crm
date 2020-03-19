@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLeadStatusTable extends Migration
+class CreateTableDeals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,19 @@ class CreateLeadStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('lead_status', function (Blueprint $table) {
+        Schema::create('deals', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('expectation');
             $table->unsignedInteger('lead_id');
+            $table->unsignedInteger('product_id');
             $table->unsignedInteger('status_id');
+            $table->unsignedInteger('user_id');
             $table->foreign('lead_id')->references('id')->on('leads')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->date('start_date');
+            $table->date('close_date');
             $table->timestamps();
         });
     }
@@ -30,6 +37,6 @@ class CreateLeadStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lead_status');
+        Schema::dropIfExists('deals');
     }
 }
