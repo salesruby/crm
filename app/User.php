@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -38,4 +39,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function deals(){
+        return $this->hasMany('App\Deal');
+    }
+
+    public function leads()
+    {
+        return $this->belongsToMany('App\Lead', 'lead_user', 'user_id', 'lead_id')->withTimestamps();;
+    }
 }

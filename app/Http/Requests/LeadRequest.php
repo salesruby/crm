@@ -27,13 +27,12 @@ class LeadRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
+            'user_id' => 'required',
             'phone' => 'required|max:20',
             'company_name' => 'required',
-            'lead_designation' => 'required',
-            'product' => 'required',
-            'sales_rep_id'=> 'required|integer',
+            'designation' => 'required',
             'next_dated_step' => 'required',
-            'expectation' => 'required'
+            'product_ids' => 'required|array'
         ];
     }
 }

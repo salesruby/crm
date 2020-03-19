@@ -6,6 +6,10 @@ use App\Http\Requests\LeadRequest;
 use App\Lead;
 use App\Product;
 use App\User;
+use App\Deal;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use DB;
 
 
 class LeadController extends Controller
@@ -40,10 +44,12 @@ class LeadController extends Controller
      */
     public function create()
     {
-        $rep = User::role('Sales')->get();
+        $users = User::role('Sales')->get();
         $products = Product::all();
-        return view('leads.create', compact(['rep','products']));
+        return view('leads.create', compact(['users','products']));
+
     }
+
 
     /**
      * @param LeadRequest $request
@@ -52,8 +58,50 @@ class LeadController extends Controller
     public function store(LeadRequest $request)
     {
         $input = $request->validated();
-        Lead::create($input);
 
+        // var_dump($input['product_prices']);
+        // var_dump($input['product_ids']);
+
+        // foreach($input['product_ids'] as $key => $productId){
+        //     var_dump($productId);
+        //     var_dump($key);
+        //     var_dump($input['product_prices'][$key]);
+        // }
+
+        // return "Yes";
+
+        // Save Lead
+        $lead = Lead::create([
+           'first_name' => $input['first_name'],
+           'last_name' => $input['last_name'],
+           'email' => $input['email'],
+           'phone' => $input['phone'],
+           'company_name' => $input['company_name'],
+           'designation' => $input['designation'],
+           'next_dated_step' => $input['next_dated_step']
+       ]);
+
+       // Save to lead_product table
+       $lead->products()->attach($input['product_ids']);
+
+       $user = User::find($input['user_id']);
+
+       // Save to lead_user table
+       $user->leads()->attach($lead->id);
+
+       // Save to deals table
+       foreach($input['product_ids'] as $key => $productId){
+           $product = Product::find($productId);
+           Deal::create([
+               'expectation' => $product->price,
+               'lead_id' => $lead->id,
+               'user_id' => $user->id,
+               'status_id' => 1,
+               'product_id' => $productId,
+               'start_date' => now(),
+               'close_date' => now()
+           ]);
+       }
 
         return redirect()->route('leads.index')
             ->with('success','Lead created successfully.');

@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     protected $fillable = ['first_name', 'last_name', 'email', 'phone', 'company_name',
-        'lead_designation', 'product', 'phone', 'sales_rep_id', 'next_dated_step', 'expectation'];
+        'designation', 'next_dated_step'];
 
-    public function statuses(){
-        return $this->belongsToMany(Status::class, 'lead_status', 'lead_id', 'status_id' )
-            ->latest('id')->limit(1);
+    public function deals(){
+        return $this->hasMany('App\Deal');
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Product', 'lead_product', 'lead_id', 'product_id')->withTimestamps();
     }
 
 }
