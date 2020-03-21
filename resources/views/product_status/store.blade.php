@@ -6,7 +6,7 @@
         <div class="row">
             <h5 class="col-sm-11 ">Move Lead to Next Stage</h5>
             <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('leads.show', $lead_id) }}"> Back</a>
             </span>
         </div>
     </div>
@@ -22,14 +22,17 @@
         </div>
     @endif
 
-    <form method="POST" action="{{route('lead_status.store')}}">
+    <form method="POST" action="{{route('product_status.store')}}">
         @csrf
 
         <div class="row">
 
-            <input type="hidden" name="lead_id" value="{{ $id }}">
+            <input type="hidden" name="expectation" value="{{ $price}}">
+            <input type="hidden" name="lead_id" value="{{ $lead_id}}">
+            <input type="hidden" name="product_id" value="{{ $product_id}}">
+            <input type="hidden" name="user_id" value="{{ $user_id}}">
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
+             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="status_id">Status:</label>
                     <select name="status_id">
@@ -43,9 +46,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-
-
     </form>
-
 
 @endsection

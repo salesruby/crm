@@ -5,3 +5,12 @@
 .card{
     margin-top: 25px;
 }
+
+.lead-product{
+    margin: 20px 0px;
+}
+
+.lead-product h6{
+    padding: 0px;
+    margin: 0px;
+}

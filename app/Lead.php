@@ -15,7 +15,9 @@ class Lead extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'lead_product', 'lead_id', 'product_id')->withTimestamps();
+        return $this->belongsToMany('App\Product', 'lead_product', 'lead_id', 'product_id')
+            ->latest()
+            ->withTimestamps();
     }
 
 }

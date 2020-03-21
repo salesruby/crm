@@ -59,18 +59,6 @@ class LeadController extends Controller
     {
         $input = $request->validated();
 
-        // var_dump($input['product_prices']);
-        // var_dump($input['product_ids']);
-
-        // foreach($input['product_ids'] as $key => $productId){
-        //     var_dump($productId);
-        //     var_dump($key);
-        //     var_dump($input['product_prices'][$key]);
-        // }
-
-        // return "Yes";
-
-        // Save Lead
         $lead = Lead::create([
            'first_name' => $input['first_name'],
            'last_name' => $input['last_name'],

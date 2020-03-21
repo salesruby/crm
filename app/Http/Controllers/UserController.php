@@ -75,7 +75,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $leads = Lead::where("sales_rep_id", $id)->get();
+        $lead = $user->leads;
         return view('users.show',compact(['user', 'leads']));
     }
 

@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('deals/deadline', 'DealController@deadline')->name('deals.deadline');
     Route::get('chats/form/{id}','ChatController@showForm')->name('chats.form');
     Route::post('chats/store','ChatController@storeChat')->name('chats.store');
-    Route::get('lead_status/form/{id}','LeadStatusController@showForm')->name('lead_status.form');
-    Route::post('lead_status/store','LeadStatusController@storeStatus')->name('lead_status.store');
+    Route::get('status/{lead_id}/product/{product_id}','ProductStatusController@showForm')->name('product_status.edit');
+    Route::post('status/store','ProductStatusController@storeStatus')->name('product_status.store');
 });
 

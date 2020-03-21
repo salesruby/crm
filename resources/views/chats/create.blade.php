@@ -4,9 +4,9 @@
 
     <div class="page-title-box">
         <div class="row">
-            <h5 class="col-sm-11 ">Chat</strong></h5>
+            <h5 class="col-sm-11 ">Chat</h5>
             <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('leads.show', $id) }}"> Back</a>
             </span>
         </div>
     </div>
