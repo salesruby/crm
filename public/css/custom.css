@@ -19,3 +19,8 @@
    margin: 20px auto;
 
 }
+
+.navbar-collapse > .nav-list > a{
+    color: white;
+    border: thin solid red;
+}

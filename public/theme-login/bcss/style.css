@@ -1,0 +1,558 @@
+/*Template Name: Sales CRM Solution Landing Page
+Author: Chilaka Michael Obinna
+Author URL: github.com/siccoo
+Version: 1.0.0
+Website: 
+*/
+
+/* ==========================================================================
+   01. GENERAL & BASIC STYLES
+   ========================================================================== */
+
+@font-face {
+	font-family: 'Circular-Black';
+	src: url('../fonts/circular-std-book/CircularStd-Black.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Bold';
+	src: url('../fonts/circular-std-book/CircularStd-Bold.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Book-Italics';
+	src: url('../fonts/circular-std-book/CircularStd-BookItalic.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Book';
+	src: url('../fonts/circular-std-book/CircularStd-Book.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Black-Italics';
+	src: url('../fonts/circular-std-book/CircularStd-BlackItalic.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Bold-Italics';
+	src: url('../fonts/circular-std-book/CircularStd-BoldItalic.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Medium';
+	src: url('../fonts/circular-std-book/CircularStd-Medium.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Circular-Medium-Italics';
+	src: url('../fonts/circular-std-book/CircularStd-MediumItalic.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  margin: 0 !important;
+}
+
+body {
+	font-family: 'Circular-Black';
+	-webkit-font-smoothing: antialiased;
+	margin: 0 !important;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* ==========================================================================
+   02. HEADER & NAVIGATION
+   ========================================================================== 
+*/
+
+/*------------------------------------------*/
+/*	 Navigation Bar
+/*------------------------------------------*/
+
+.navbar-default {
+    background-color: #07499a;
+    border-radius: none !important;
+    margin: 0px 0px 40px 0px !important;
+    min-height: 80px;
+}
+
+.navbar .navbar-nav li {
+    margin-top: 18px !important;
+}
+
+.navbar .navbar-nav .nav-menu {
+    color: #ffffff;
+    margin-right: 60px;
+}
+
+.navbar .navbar-nav .nav-menu:hover, .navbar .navbar-nav .nav-menu:active, .navbar .navbar-nav .nav-menu:focus {
+    color: #ffffff;
+}
+
+.navbar .navbar-nav .nav-contact {
+    background-color:#07499a;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.navbar .navbar-nav .nav-contact:hover, .navbar .navbar-nav .nav-contact:active, .navbar .navbar-nav .nav-contact:focus {
+    background-color: #07499a;
+    color: #ffffff;
+} 
+
+/*------------------------------------------*/
+/*	 Responsive Toggle Menu Button
+/*------------------------------------------*/
+
+.navbar-toggle {
+    position: relative;
+	background-color: #07499a;
+	color: #ffffff;
+}
+
+.navbar-toggle .icon-bar {
+	background-color: #ffffff;
+}
+
+.navbar-toggle:hover {
+    background-color: #07499a !important;
+    color: #ffffff;
+}
+
+/*------------------------------------------*/
+/*	 Logo Image
+/*------------------------------------------*/
+
+.home-logo {
+    /*top: -50px;*/
+    width: 130px;
+    /*margin-bottom: -20px;*/
+}
+
+/*------------------------------------------*/
+/*	 Hero Section Starts
+/*------------------------------------------*/
+
+.hero-section {
+    padding: 30px 0;
+}
+
+.hero-section h1 {
+    padding-top: 150px;
+    color: #3e374b;
+}
+
+@media only screen and (max-width:1024px) {
+    .hero-section h1 {
+        padding-top: 30px;
+    }
+}
+
+.hero-section p {
+    font-family: 'Circular-Medium';
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+.hero-section h1 span {
+    color: #FF1100;
+}
+
+.social {
+    padding-top: 15px;
+}
+
+.cont-data {
+    position: relative;
+    height: 100px;
+}
+
+/*.play {
+    position: absolute;
+    bottom: 40%;
+    left: -8%;
+}
+
+.play i {
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #5dc41d;
+    padding: 30px 30px 30px 30px;
+    border: 4px solid #e2f2da;
+}*/
+
+/*------------------------------------------*/
+/*	 Hero Section Ends
+/*------------------------------------------*/
+
+/*------------------------------------------*/
+/*	 About Section Start
+/*------------------------------------------*/
+
+.about-section {
+    padding: 100px 0 80px 0;
+}
+
+.about-section h1 {
+    font-family: 'Circular-Medium';
+    font-size: 30px;
+    color: #3e374b;
+    margin: 30px auto;
+}
+
+.abt-card {
+    border: 2px solid #f8f8f8;
+    padding: 20px;
+    /*height: 300px;*/
+    border-radius: 4px;
+}
+
+.abt-card img {
+    width: 50px;
+}
+
+.abt-card h4 {
+    color: #3e374b;
+}
+
+.abt-card p {
+    font-family: 'Circular-Medium';
+    font-size: 15px;
+    line-height: 2;
+    max-width: 400px;
+    margin: auto;
+}
+
+.about-section h3 {
+    font-family: 'Circular-Book';
+    line-height: 1.8;
+    max-width: 878px;
+    margin: auto;
+}
+
+.about-section h3 span {
+    color: #5dc41d;
+}
+
+.about-section h6 {
+    font-family: 'Circular-Book';
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 510px;
+    margin: auto;
+    color: #dfdfdf;
+}
+
+#divider {
+    width: 155px;
+    height: 7px;
+    background-color: #e4f5da;
+    border-radius: 7px;
+    margin: 20px auto;
+}
+
+/*------------------------------------------*/
+/*	 About Section Ends
+/*------------------------------------------*/
+
+/*------------------------------------------*/
+/*	 Projects Section Starts
+/*------------------------------------------*/
+
+.projects-section {
+    font-family: 'Circular-Book';
+    background-color: #07499a;
+    padding: 50px 0;
+}
+
+.projects-section h1 {
+    color: #ffffff;
+}
+
+.projects-section h5 {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.projects-section .projects {
+    font-size: 16px;
+    color: #ffffff;
+    max-width: 610px;
+    margin: auto;
+}
+
+.projects-section .proj-card {
+    margin-top: 100px;
+}
+
+@media only screen and (max-width:1024px) {
+    .projects-section .proj-card {
+        margin-top: 0px;
+    }
+}
+
+.projects-section p {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.projects-section a {
+    font-size: 21px;
+    text-decoration: underline;
+    color: #07499a;
+}
+
+/*------------------------------------------*/
+/*	 Projects Section Ends
+/*------------------------------------------*/
+
+/*------------------------------------------*/
+/*	 Events Section Starts
+/*------------------------------------------*/
+
+/* .events-section {
+    padding: 50px 0 0 0;
+    font-family: 'Circular-Medium';
+}
+
+.events-section h1 {
+    font-size: 40px;
+    color: #3e374b;
+    margin: 30px 0;
+}
+
+.event-card {
+    border: 2px solid #f8f8f8;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 0 2px 8px 2px #f6f6f6;
+}
+
+
+.event-card img {
+    width: 170px;
+    height: 170px;
+}
+
+.event-card h6 {
+    font-size: 30px;
+    color: #3e374b; */
+    /* padding: 7px 0; */
+/* } */
+
+/* .event-card p {
+    font-family: 'Circular-Book';
+    font-size: 15px;
+    color: #3e374b;
+}
+
+.event-card .event-date {
+    font-family: 'Circular-Book';
+    font-size: 17px;
+    color: #5dc41d;
+    padding: 5px 0;
+}
+
+.event-card .btn {
+    width: 170px;
+    height: 45px;
+    border: 0;
+    border-radius: 7px;
+    background-color: #5dc41d;
+    color: #ffffff;
+    margin: 60px 70px;
+    text-decoration-line: none;
+    padding: 12px 0 0 0;
+} */
+
+/*------------------------------------------*/
+/*	 Events Section Ends
+/*------------------------------------------*/
+
+/*------------------------------------------*/
+/*	 Contact-Us Section Starts
+/*------------------------------------------*/
+
+.contact-section {
+    font-family: 'Circular-Medium';
+    /* background: url('../img/images_131.jpeg') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    padding: 30px 0;
+    margin: 0 0 30px 0
+}
+
+.contact-section h1 {
+    font-size: 40px;
+    color: #3e374b;
+}
+
+.contact-section .contact-card {
+    padding: 50px;
+    background-color: #ffffff;
+    border: 2px solid #f8f8f8;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 2px #f6f6f6;
+}
+
+.contact-card .form1 {
+    color: #07499a;
+    font-size: 15px;
+    font-family: 'Circular-Book'
+}
+
+input[type=text], input[type=email] {
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #3e374b;
+}
+
+.contact-card textarea {
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #3e374b;
+}
+
+.contact-card button {
+    width: 453px;
+    height: 40px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #07499a;
+    color: #ffffff;
+    margin: auto;
+    text-decoration-line: none;
+}
+
+@media (max-width: 575.98px) {
+    .contact-card  button {
+      width: 200px
+    }
+}
+
+.contact-section .contact-data {
+    margin: 0 60px;
+    padding: 65px 0;
+    font-size: 16px;
+    font-family: 'Circular-Book';
+}
+
+@media (max-width: 575.98px) {
+    .contact-section .contact-data {
+      margin: 0 0px;
+      padding: 15px 0;
+      font-size: 12px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contact-section .contact-data img {
+      width: 12px;
+    }
+}
+
+/*------------------------------------------*/
+/*	 Contact-Us Section Ends
+/*------------------------------------------*/
+
+/*------------------------------------------*/
+/*	 Footer Section Starts
+/*------------------------------------------*/
+.footer-section {
+    padding: 15px 0 100px 0;
+    font-family: 'Circular-Book';
+}
+
+.foot-logo {
+
+}
+
+.foot-logo .footer-logo {
+    width: 120px;  
+}
+
+.footer-section span {
+    font-size: 12px;
+    /* bottom: 20px; */
+}
+
+.foot-logo ul {
+    float: right;
+}
+
+.foot-logo ul .social-icon {
+    float: right;
+    width: 120px;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .foot-logo ul {
+      float: left;
+      margin-top: 30px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .foot-logo ul {
+      float: left;
+      margin-top: 30px;
+    }
+}
+
+.foot-logo ul li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.foot-logo ul li i {
+    display: inline-block;
+    padding: 10px;
+    color: #777;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 20px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.foot-logo ul li i:hover {
+    color: #fff;
+    background: #07499a;
+}
+
+/*------------------------------------------*/
+/*	 Footer Section Ends
+/*------------------------------------------*/
