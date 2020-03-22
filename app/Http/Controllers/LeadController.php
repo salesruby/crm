@@ -7,9 +7,7 @@ use App\Lead;
 use App\Product;
 use App\User;
 use App\Deal;
-use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use DB;
 
 
 class LeadController extends Controller
@@ -19,11 +17,12 @@ class LeadController extends Controller
      */
     function __construct()
     {
-        $this->middleware('permission:lead-list|lead-create|lead-edit|lead-delete', ['only' => ['index','show']]);
-        $this->middleware('permission:lead-create', ['only' => ['create','store']]);
-        $this->middleware('permission:lead-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:lead-list|lead-create|lead-edit|lead-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:lead-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:lead-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:lead-delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -32,7 +31,7 @@ class LeadController extends Controller
     public function index()
     {
         $leads = Lead::latest()->paginate(5);
-        return view('leads.index',compact('leads'))
+        return view('leads.index', compact('leads'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -46,7 +45,7 @@ class LeadController extends Controller
     {
         $users = User::role('Sales')->get();
         $products = Product::all();
-        return view('leads.create', compact(['users','products']));
+        return view('leads.create', compact(['users', 'products']));
 
     }
 
@@ -58,65 +57,69 @@ class LeadController extends Controller
     public function store(LeadRequest $request)
     {
         $input = $request->validated();
-
         $lead = Lead::create([
-           'first_name' => $input['first_name'],
-           'last_name' => $input['last_name'],
-           'email' => $input['email'],
-           'phone' => $input['phone'],
-           'company_name' => $input['company_name'],
-           'designation' => $input['designation'],
-           'next_dated_step' => $input['next_dated_step']
-       ]);
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'email' => $input['email'],
+            'phone' => $input['phone'],
+            'company_name' => $input['company_name'],
+            'designation' => $input['designation'],
+            'next_dated_step' => $input['next_dated_step']
+        ]);
 
-       // Save to lead_product table
-       $lead->products()->attach($input['product_ids']);
+        // Save to lead_product table
+        $lead->products()->attach($input['product_ids']);
 
-       $user = User::find($input['user_id']);
+        $user = User::find($input['user_id']);
 
-       // Save to lead_user table
-       $user->leads()->attach($lead->id);
+        // Save to lead_user table
+        $user->leads()->attach($lead->id);
 
-       // Save to deals table
-       foreach($input['product_ids'] as $key => $productId){
-           $product = Product::find($productId);
-           Deal::create([
-               'expectation' => $product->price,
-               'lead_id' => $lead->id,
-               'user_id' => $user->id,
-               'status_id' => 1,
-               'product_id' => $productId,
-               'start_date' => now(),
-               'close_date' => now()
-           ]);
-       }
+        // Save to deals table
+        foreach ($input['product_ids'] as $key => $productId) {
+            $product = Product::find($productId);
+            Deal::create([
+                'expectation' => $product->price,
+//                   'quantity' => "",
+//                   'total_expectation' => "",
+                'lead_id' => $lead->id,
+                'user_id' => $user->id,
+                'status_id' => 1,
+                'product_id' => $productId,
+                'start_date' => now(),
+                'close_date' => now()
+            ]);
+
+        }
 
         return redirect()->route('leads.index')
-            ->with('success','Lead created successfully.');
+            ->with('success', 'Lead created successfully.');
+
+
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Lead  $lead
+     * @param  \App\Lead $lead
      * @return \Illuminate\Http\Response
      */
     public function show(Lead $lead)
     {
-        return view('leads.show',compact('lead'));
+        return view('leads.show', compact('lead', 'chats'));
     }
 
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Lead  $lead
+     * @param  \App\Lead $lead
      * @return \Illuminate\Http\Response
      */
     public function edit(Lead $lead)
     {
-        return view('leads.edit',compact('lead'));
+        return view('leads.edit', compact('lead'));
     }
 
 
@@ -133,14 +136,14 @@ class LeadController extends Controller
 
 
         return redirect()->route('leads.index')
-            ->with('success','Lead updated successfully');
+            ->with('success', 'Lead updated successfully');
     }
 
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Lead  $lead
+     * @param  \App\Lead $lead
      * @return \Illuminate\Http\Response
      */
     public function destroy(Lead $lead)
@@ -149,6 +152,6 @@ class LeadController extends Controller
 
 
         return redirect()->route('leads.index')
-            ->with('success','Lead deleted successfully');
+            ->with('success', 'Lead deleted successfully');
     }
 }

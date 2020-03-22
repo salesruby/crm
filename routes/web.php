@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('deals/open', 'DealController@open')->name('deals.open');
     Route::get('deals/closed', 'DealController@closed' )->name('deals.closed');
     Route::get('deals/deadline', 'DealController@deadline')->name('deals.deadline');
-    Route::get('chats/form/{id}','ChatController@showForm')->name('chats.form');
+    Route::get('chats/{lead_id}/product/{product_id}','ChatController@showForm')->name('chats.create');
     Route::post('chats/store','ChatController@storeChat')->name('chats.store');
     Route::get('status/{lead_id}/product/{product_id}','ProductStatusController@showForm')->name('product_status.edit');
     Route::post('status/store','ProductStatusController@storeStatus')->name('product_status.store');

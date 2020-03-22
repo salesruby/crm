@@ -27,6 +27,7 @@ class ChatRequest extends FormRequest
             'summary' => 'required',
             'user_id' => 'required',
             'lead_id' => 'required',
+            'product_id' => 'required',
         ];
     }
 }

@@ -20,21 +20,15 @@ class ProductStatusController extends Controller
         $price = Product::find( $product_id)->price;
         $user_id = Auth::user()->id;
         $statuses = Status::all();
-        return view('product_status.store',
+        return view('product_status.edit',
             compact('lead_id', 'product_id', 'statuses', 'price', 'user_id'));
     }
 
     public function storeStatus(Request $request){
 
-        Deal::create([
-            'expectation' => $request->expectation,
-            'user_id' => $request->user_id,
-            'lead_id' => $request->lead_id,
-            'status_id' => $request->status_id,
-            'product_id' => $request->product_id,
-            'start_date' => now(),
-            'close_date' => now()
-        ]);
+        Deal::where('lead_id', $request->lead_id)
+            ->where('product_id', $request->product_id)
+            ->update(['status_id' => $request->status_id]);
 
         return redirect()->route('leads.show', $request->lead_id)
             ->with(compact('success', 'Product status updated successfully') );

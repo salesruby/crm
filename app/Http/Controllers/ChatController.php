@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class ChatController extends Controller
 {
     /**
-     * @param $id
+     * @param $lead_id
+     * @param $product_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
-    public function showForm($id){
-        $user = Auth::user();
-        return view('chats.create', compact('id', 'user'));
+    public function showForm($lead_id, $product_id){
+        $user_id = Auth::user()->id;
+        return view('chats.create', compact('lead_id', 'product_id', 'user_id'));
     }
 
     /**
@@ -26,8 +27,7 @@ class ChatController extends Controller
     public function storeChat(ChatRequest $request){
         $input = $request->validated();
         Chat::create($input);
-
-        return redirect()->route('leads.index')
+        return redirect()->route('leads.show', $request->lead_id)
             ->with('success', 'Chat saved successfully');
     }
 

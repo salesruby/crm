@@ -6,7 +6,7 @@
         <div class="row">
             <h5 class="col-sm-11 ">Chat</h5>
             <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('leads.show', $id) }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('leads.show', $lead_id) }}"> Back</a>
             </span>
         </div>
     </div>
@@ -27,9 +27,9 @@
 
         <div class="row">
 
-            <input type="hidden" name="user_id" value="{{ $user->id  }}">
-            <input type="hidden" name="lead_id" value="{{ $id }}">
-
+            <input type="hidden" name="lead_id" value="{{ $lead_id }}">
+            <input type="hidden" name="product_id" value="{{ $product_id  }}">
+            <input type="hidden" name="user_id" value="{{ $user_id  }}">
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -42,8 +42,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-
-
     </form>
 
 

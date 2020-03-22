@@ -35,40 +35,53 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <span class="badge badge-success">Opened</span>  <strong>{{$lead->created_at}}</strong>
+                <span class="badge badge-success">Opened</span> <strong>{{$lead->created_at}}</strong>
             </div>
         </div>
     </div>
+    @foreach($lead->deals as $deal)
+        <div class="lead-product">
+            <div class="panel panel-default">
+                <div class="row panel-heading">
+                    <h5 class="panel-title col-md-9">
+                        {{$deal->product->name}}
 
+                        {{$deal->status->name}}
 
-        @foreach($lead->products as $product)
-            <div class="row lead-product">
-                <h6 class="col-xs-6 col-sm-6 col-md-4">{{$product->name}}</h6>
-                <div class="col-xs-6 col-sm-6 col-md-4">{{$product->description}} {{$product->id}}</div>
-                <div class="col-xs-6 col-sm-6 col-md-4">
-                    <a class="btn btn-warning" href="{{ route('chats.form', $lead->id)}}">Chat</a>
-                    <a class="btn btn-info" href="{{ route('product_status.edit', array($lead->id, $product->id))}}">
-                        Status
-                    </a>
+                    </h5>
+                    <div class="pull-right col-md-3">
+                        <a class="btn btn-info" data-toggle="collapse" data-target="#chat{{$deal->product->id}}" >Show</a>
+                        <a class="btn btn-warning"
+                           href="{{ route('chats.create', array($lead->id, $deal->product->id))}}">Chat</a>
+                        <a class="btn btn-outline-success"
+                           href="{{ route('product_status.edit', array($lead->id, $deal->product->id))}}">Status</a>
+                    </div>
+                </div>
+                <div id="chat{{$deal->product->id}}" class="chat-summary-table panel-collapse collapse col-xs-10 col-md-10">
+                    <div class=" panel-body ">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">S/N</th>
+                                    <th scope="col">Summary</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($deal->product->chats as $chat)
+                                    <tr>
+                                        <td>{{$chat->summary}}</td>
+                                        <td>{{$chat->created_at}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-                    {{--<div class="table-responsive">--}}
-                        {{--<table class="table table-bordered table-hover">--}}
-                            {{--<thead>--}}
-                            {{--<tr>--}}
-                                {{--<th scope="col">S/N</th>--}}
-                                {{--<th scope="col">Summary</th>--}}
-                            {{--</tr>--}}
-                            {{--</thead>--}}
-                            {{--<tbody>--}}
-                                {{--<tr>--}}
-                                    {{--<td>number</td>--}}
-                                    {{--<td>summary</td>--}}
-                                    {{--</td>--}}
-                                {{--</tr>--}}
-                            {{--</tbody>--}}
-                        {{--</table>--}}
-                    {{--</div>--}}
-
-        @endforeach
+        </div>
+    @endforeach
 @endsection

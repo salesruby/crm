@@ -25,6 +25,7 @@ class StatusRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'alias' => 'required',
             'description' => 'required'
         ];
     }
