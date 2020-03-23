@@ -40,16 +40,18 @@
         </div>
     </div>
     @foreach($lead->deals as $deal)
+{{--        {{dd($deal->product->name, $deal->user->name)}}--}}
         <div class="lead-product">
             <div class="panel panel-default">
                 <div class="row panel-heading">
-                    <h5 class="panel-title col-md-9">
+                    <h5 class="panel-title col-md-5">
                         {{$deal->product->name}}
-
-                        {{$deal->status->name}}
-
                     </h5>
-                    <div class="pull-right col-md-3">
+
+                    <h5 class="col-md-3">
+                        <small class="badge badge-success">{{$deal->status->name}}</small>
+                    </h5>
+                    <div class="pull-right col-md-4">
                         <a class="btn btn-info" data-toggle="collapse" data-target="#chat{{$deal->product->id}}" >Show</a>
                         <a class="btn btn-warning"
                            href="{{ route('chats.create', array($lead->id, $deal->product->id))}}">Chat</a>
@@ -69,8 +71,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $i = 0;
+                                @endphp
+
                                 @foreach($deal->product->chats as $chat)
                                     <tr>
+                                        <td>{{++$i}}</td>
                                         <td>{{$chat->summary}}</td>
                                         <td>{{$chat->created_at}}</td>
                                     </tr>

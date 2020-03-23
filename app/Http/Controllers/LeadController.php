@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Chat;
 use App\Http\Requests\LeadRequest;
 use App\Lead;
 use App\Product;
@@ -63,8 +64,7 @@ class LeadController extends Controller
             'email' => $input['email'],
             'phone' => $input['phone'],
             'company_name' => $input['company_name'],
-            'designation' => $input['designation'],
-            'next_dated_step' => $input['next_dated_step']
+            'designation' => $input['designation']
         ]);
 
         // Save to lead_product table
@@ -88,6 +88,16 @@ class LeadController extends Controller
                 'product_id' => $productId,
                 'start_date' => now(),
                 'close_date' => now()
+            ]);
+
+            Chat::create([
+                'lead_id' => $lead->id,
+                'user_id' => $user->id,
+                'status' => 0,
+                'product_id' => $productId,
+                'summary' => 'New lead',
+                'next_dated_step' =>$input['next_dated_step'],
+                'action' => 'Call or Mail '.$input['first_name'] .' '.$input['last_name']
             ]);
 
         }

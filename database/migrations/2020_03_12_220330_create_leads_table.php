@@ -21,7 +21,6 @@ class CreateLeadsTable extends Migration
             $table->string('phone');
             $table->string('company_name');
             $table->string('designation');
-            $table->dateTime('next_dated_step')->default(now());
             $table->timestamps();
         });
     }

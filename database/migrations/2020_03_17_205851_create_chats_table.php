@@ -22,6 +22,9 @@ class CreateChatsTable extends Migration
             $table->foreign('lead_id')->references('id')->on('leads')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('summary');
+            $table->dateTime('next_dated_step')->default(now());
+            $table->text('action');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

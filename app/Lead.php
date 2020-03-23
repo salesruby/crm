@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     protected $fillable = ['first_name', 'last_name', 'email', 'phone', 'company_name',
-        'designation', 'next_dated_step'];
+        'designation'];
 
     public function deals(){
         return $this->hasMany('App\Deal');
