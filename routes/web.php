@@ -37,5 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('chats/store','ChatController@storeChat')->name('chats.store');
     Route::get('status/{lead_id}/product/{product_id}','ProductStatusController@showForm')->name('product_status.edit');
     Route::post('status/store','ProductStatusController@storeStatus')->name('product_status.store');
+    Route::get('tasks/index','TaskController@index')->name('tasks.index');
+    Route::post('/tasks/update','TaskController@update');
 });
 

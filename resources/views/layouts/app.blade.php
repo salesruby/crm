@@ -10,10 +10,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('theme/images/SR-favicon.png')}}">
+
     <link href="{{asset('theme/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('theme/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('theme/css/icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('theme/css/style.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('theme/js/jquery-ui.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css">
 
 </head>
@@ -152,13 +154,11 @@
 
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect"><i
-                                            class="mdi mdi-chart-line"></i><span> My Tasks <span
+                                            class="mdi mdi-chart-line"></i><span> Tasks <span
                                                 class="float-right menu-arrow"><i
                                                     class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="deadline.html">Deadlines</a></li>
-                                    <li><a href="missed.html">Missed</a></li>
-                                    <li><a href="closed.html">Closed</a></li>
+                                    <li><a href="{{route('tasks.index')}}">To-Do List</a></li>
                                 </ul>
                             </li>
 
@@ -255,9 +255,8 @@
 
         @endguest
 
-
-
         <script src="{{asset('theme/js/jquery.min.js')}}"></script>
+        <script src="{{asset('theme/js/jquery-ui.js')}}"></script>
         <script src="{{asset('theme/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('theme/js/metismenu.min.js')}}"></script>
         <script src="{{asset('theme/js/jquery.slimscroll.js')}}"></script>
@@ -265,8 +264,7 @@
         <script src="{{asset('theme/pages/dashboard.init.js')}}"></script>
         <!-- App js -->
         <script src="{{asset('theme/js/app.js')}}"></script>
+        <script src="{{asset('js/custom.js')}}"></script>
 
-        <!-- Scripts -->
-        {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
 </body>
 </html>
