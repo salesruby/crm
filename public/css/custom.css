@@ -24,3 +24,62 @@
     color: white;
     border: thin solid red;
 }
+
+/*for task blade*/
+.create-task{
+    border-left: solid thick blue;
+    border-radius: 5px;
+}
+
+.tomorrow-task{
+    border-left: solid thick orange;
+    border-radius: 5px;
+}
+
+
+.today-task{
+    border-left: solid thick red;
+    border-radius: 5px;
+}
+
+.done-task{
+    border-left: solid thick green;
+    border-radius: 5px;
+}
+
+.to-do-list{
+    min-height: 50px;
+    margin: auto;
+    background-color: #CCCCCC;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.to-do-list ul{
+    min-width: 98%;
+}
+
+
+.to-do-list li{
+    min-height: 50px;
+    margin-top: 10px;
+    margin-left : -35px;
+    background-color: white;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+.to-do-list li:hover{
+    background-color: whitesmoke;
+}
+
+#today-list li:hover, #done-list li:hover, #toggle-create-todo-form{
+    cursor: hand;
+}
+
+#create-todo-form input{
+    margin-bottom: 5px;
+}

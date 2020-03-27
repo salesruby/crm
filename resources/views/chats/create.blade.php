@@ -30,7 +30,7 @@
             <input type="hidden" name="lead_id" value="{{ $lead_id }}">
             <input type="hidden" name="product_id" value="{{ $product_id  }}">
             <input type="hidden" name="user_id" value="{{ $user_id  }}">
-            <input type="hidden" name="status" value=1>
+            <input type="hidden" name="status" value=0>
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
                     <strong>Next Action:</strong>
