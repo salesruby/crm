@@ -62,7 +62,7 @@
                 <div id="chat{{$deal->product->id}}" class="chat-summary-table panel-collapse collapse col-xs-10 col-md-10">
                     <div class=" panel-body ">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th scope="col">S/N</th>

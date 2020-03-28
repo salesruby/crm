@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 class DealController extends Controller
 {
+    public function all(){
+        return view('deals.all');
+    }
+
     public function open(){
         return view('deals.open');
     }

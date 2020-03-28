@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Deal;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Arr;
@@ -67,16 +68,21 @@ class UserController extends Controller
 
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find($id);
-        $lead = $user->leads;
-        return view('users.show',compact(['user', 'leads']));
+        $deals = $user->deals()->get();
+        $total_expectation = $deals->sum('expectation');
+        $revenue = [];
+        foreach($deals as $deal ) {
+            if ($deal->status->alias == 'won') {
+                $revenue[] = $deal->expectation;
+            }
+        }
+        $generated_revenue = array_sum($revenue);
+        return view('users.show',compact(['user', 'deals', 'total_expectation', 'generated_revenue']));
     }
 
 

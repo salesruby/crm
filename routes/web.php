@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('leads','LeadController');
     Route::resource('products','ProductController');
     Route::resource('statuses','StatusController');
+    Route::get('deals/all', 'DealController@all')->name('deals.all');
     Route::get('deals/open', 'DealController@open')->name('deals.open');
     Route::get('deals/closed', 'DealController@closed' )->name('deals.closed');
     Route::get('deals/deadline', 'DealController@deadline')->name('deals.deadline');

@@ -168,6 +168,7 @@
                                                 class="float-right menu-arrow"><i
                                                     class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
+                                    <li><a href="{{route('deals.all')}}">All</a></li>
                                     <li><a href="{{route('deals.open')}}">Open</a></li>
                                     <li><a href="{{route('deals.closed')}}">Closed</a></li>
                                     <li><a href="{{route('deals.deadline')}}">Deadline</a></li>
@@ -237,20 +238,19 @@
             {{--CONTENT--}}
             <div class="content-page">
                 <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="card m-b-30">
-                                    <div class="card-body">
+                    {{--<div class="container-fluid">--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-xl-12">--}}
+                                {{--<div class="card m-b-30">--}}
+                                    {{--<div class="card-body">--}}
                                         @yield('content')
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
-
         </div>
 
         @endguest

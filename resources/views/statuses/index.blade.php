@@ -18,39 +18,38 @@
         </div>
     @endif
 
-
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($statuses as $status)
+    <div class="table-responsive">
+        <table class="table table-hover">
             <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $status->name }}</td>
-                <td>{{ $status->description }}</td>
-                <td>
-                    <form action="{{ route('statuses.destroy',$status->id) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('statuses.show',$status->id) }}">Show</a>
-                        @can('product-edit')
-                            <a class="btn btn-primary" href="{{ route('statuses.edit',$status->id) }}">Edit</a>
-                        @endcan
-
-
-                        @csrf
-                        @method('DELETE')
-                        @can('status-delete')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        @endcan
-                    </form>
-                </td>
+                <th>No</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th width="280px">Action</th>
             </tr>
-        @endforeach
-    </table>
+            @foreach ($statuses as $status)
+                <tr>
+                    <td>{{ ++$i }}</td>
+                    <td>{{ $status->name }}</td>
+                    <td>{{ $status->description }}</td>
+                    <td>
+                        <form action="{{ route('statuses.destroy',$status->id) }}" method="POST">
+                            <a class="btn btn-info" href="{{ route('statuses.show',$status->id) }}">Show</a>
+                            @can('product-edit')
+                                <a class="btn btn-primary" href="{{ route('statuses.edit',$status->id) }}">Edit</a>
+                            @endcan
 
 
+                            @csrf
+                            @method('DELETE')
+                            @can('status-delete')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            @endcan
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
     {!! $statuses->links() !!}
 
 @endsection

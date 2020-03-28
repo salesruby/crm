@@ -30,12 +30,12 @@
                     <div class="card">
                         <div class="card-heading p-4">
                             <div class="mini-stat-icon float-right">
-                                <i class="mdi mdi-account-plus bg-primary  text-white"></i>
+                                <i class="mdi mdi-folder-open bg-primary  text-white"></i>
                             </div>
                             <div>
-                                <h5 class="font-16">Registrations</h5>
+                                <h5 class="font-16">Open Deals</h5>
                             </div>
-                            <p class="text-muted mt-2 mb-0">Online </p>
+                            <p class="text-muted mt-2 mb-0">open</p>
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
                                 <i class="mdi mdi-thumb-up bg-success text-white"></i>
                             </div>
                             <div>
-                                <h5 class="font-16">Closed Deal</h5>
+                                <h5 class="font-16">Closed Deals</h5>
                             </div>
-                            <p class="text-muted mt-2 mb-0">Closed Tasks</p>
+                            <p class="text-muted mt-2 mb-0">Close</p>
                         </div>
                     </div>
                 </div>
@@ -61,9 +61,9 @@
                                 <i class="mdi mdi-phone-missed bg-warning text-white"></i>
                             </div>
                             <div>
-                                <h5 class="font-16">Missed Deal</h5>
+                                <h5 class="font-16">Missed Deals</h5>
                             </div>
-                            <p class="text-muted mt-2 mb-0">Missed Tasks</p>
+                            <p class="text-muted mt-2 mb-0">Missed</p>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                                 <i class="mdi mdi-calendar-check bg-danger text-white"></i>
                             </div>
                             <div>
-                                <h5 class="font-16">Deadline</h5>
+                                <h5 class="font-16">Deadline Deals</h5>
                             </div>
                             <p class="text-muted mt-2 mb-0">Approaching</p>
                         </div>

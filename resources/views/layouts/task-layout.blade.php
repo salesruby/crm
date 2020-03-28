@@ -38,7 +38,7 @@
                                 @csrf
                                 <input  id="action" class="form-control" value="{{old('action')}}" placeholder="Enter Task" autofocus />
                                 <input  type="datetime-local" id="next_dated_step"  class="form-control" value="{{old('next_dated_step')}}" placeholder="Enter Task" autofocus />
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-">Submit</button>
                             </form>
                         </div>
                     </div>
