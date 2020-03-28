@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-@section('content')
+@section('page-title-row')
     <div class="page-title-box">
         <div class="row">
             <div class="col-sm-11">
@@ -8,8 +7,8 @@
             </div>
         </div>
     </div>
-
-
+@endsection
+@section('content')
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>

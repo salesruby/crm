@@ -1,10 +1,5 @@
 @extends('layouts.app')
-
-@section('content')
-
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
+@section('page-title-row')
     <div class="page-title-box">
         <div class="row">
             <h5 class="col-sm-11">
@@ -15,9 +10,14 @@
             </span>
         </div>
     </div>
+@endsection
 
-    <!-- end row -->
-    <!-- end page-title -->
+@section('content')
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -164,5 +164,4 @@
         </div>
 
     </form>
-
 @endsection

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Deal;
+
 class DealController extends Controller
 {
     public function all(){
-        return view('deals.all');
+        $deals = Deal::all();
+        return view('deals.all')->with(compact('deals'));
     }
 
     public function open(){

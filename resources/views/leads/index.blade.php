@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
-@section('content')
+@section('page-title-row')
     <div class="page-title-box">
         <div class="row">
             <h5 class="col-sm-12">
                 Manage Lead
             </h5>
         </div>
-        <!-- end row -->
     </div>
+@endsection
+
+@section('content')
     <!-- end page-title -->
     @if ($message = Session::get('success'))
         <div class="alert alert-success">

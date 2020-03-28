@@ -1,16 +1,15 @@
 @extends('layouts.app')
-
-@section('content')
-
-    <div class="page-title-box">
-        <div class="row">
-            <h5 class="col-sm-11 ">Chat</h5>
-            <span class="pull-right">
+@section('page-title-row')
+<div class="page-title-box">
+    <div class="row">
+        <h5 class="col-sm-11 ">Chat</h5>
+        <span class="pull-right">
                 <a class="btn btn-primary" href="{{ route('leads.show', $lead_id) }}"> Back</a>
             </span>
-        </div>
     </div>
-
+</div>
+@endsection
+@section('content')
     @if($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>

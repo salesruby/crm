@@ -238,20 +238,29 @@
             {{--CONTENT--}}
             <div class="content-page">
                 <div class="content">
-                    {{--<div class="container-fluid">--}}
+                    @yield('page-title-row')
+
+                    <div class="container-fluid">
+                        {{--<div class="row" style="padding: 0px 20px 0px 20px;">--}}
+                        <div class="col-xl-12">
+                            @yield('stats')
+                        </div>
+                    </div>
+                    <div class="container-fluid">
                         {{--<div class="row">--}}
-                            {{--<div class="col-xl-12">--}}
-                                {{--<div class="card m-b-30">--}}
-                                    {{--<div class="card-body">--}}
+                            <div class="col-xl-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
                                         @yield('content')
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+                                    </div>
+                                </div>
+                            </div>
                         {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+                    </div>
+                </div>
             </div>
         </div>
+
 
         @endguest
 

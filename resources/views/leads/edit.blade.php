@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-
-@section('content')
-
+@section('page-title-row')
     <div class="page-title-box">
         <div class="row">
             <h5 class="col-sm-11 ">Edit Lead</h5>
@@ -11,6 +9,9 @@
             </span>
         </div>
     </div>
+@endsection
+
+@section('content')
 
     @if ($errors->any())
         <div class="alert alert-danger">

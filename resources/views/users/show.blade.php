@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('page-title-row')
     <div class="page-title-box">
         <div class="row">
             <h5 class="col-sm-11">
@@ -11,28 +11,32 @@
             </span>
         </div>
     </div>
+@endsection
 
+@section('stats')
     <div class="row">
-        <div class="col-sm-6 col-xl-6 card user-card">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {{ $user->name }}
-            </div>
+        <div class="col-sm-6 col-xl-6">
+            <div class="card user-card">
+                <div class="form-group">
+                    <strong>Name:</strong>
+                    {{ $user->name }}
+                </div>
 
-            <div class="form-group">
-                <strong>Email:</strong>
-                {{ $user->email }}
-            </div>
 
-            <div class="form-group">
-                <strong>Roles:</strong>
-                @if(!empty($user->getRoleNames()))
-                    @foreach($user->getRoleNames() as $v)
-                        <label class="badge badge-success">{{ $v }}</label>
-                    @endforeach
-                @endif
-            </div>
+                <div class="form-group">
+                    <strong>Email:</strong>
+                    {{ $user->email }}
+                </div>
 
+                <div class="form-group">
+                    <strong>Roles:</strong>
+                    @if(!empty($user->getRoleNames()))
+                        @foreach($user->getRoleNames() as $v)
+                            <label class="badge badge-success">{{ $v }}</label>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
         </div>
 
         <div class="col-sm-6 col-xl-3">
@@ -53,7 +57,8 @@
             </div>
         </div>
     </div>
-
+@endsection
+@section('content')
     <div class="row">
         <div class="table-responsive">
             <table class="table table-hover">

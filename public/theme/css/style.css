@@ -1377,18 +1377,19 @@ dt {
 /******* Page Title *******/
 .page-title-box {
   padding: 10px 0px 0px 0px;
+  margin-bottom: 20px ;
 }
 
 .page-title-box .page-title {
   font-size: 18px;
-  margin: 0;
+  /*margin: 0;*/
   line-height: 30px;
 }
 
 .page-title-box .breadcrumb {
   padding: 4px 0;
   background-color: transparent;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 
 }
 

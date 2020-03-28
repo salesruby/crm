@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('content')
-
-
+@section('page-title-row')
     <div class="page-title-box">
         <div class="row">
             <div class="col-sm-11">
-                <h2>Lead Details</h2>
+                <h5>Lead Details</h5>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
             </div>
         </div>
     </div>
+@endsection
 
+@section('content')
     <div class="row">
         @if($message = Session::get('success'))
             <div class="alert alert-success col-xs-12 col-sm-12 col-md-12">
