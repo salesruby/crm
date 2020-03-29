@@ -98,7 +98,7 @@
                         <td>{{++$i}}</td>
                         <td>{{$deal->lead->first_name}} {{$deal->lead->last_name}}</td>
                         <td>{{$deal->product->name}}</td>
-                        <td>{{$deal->status->alias}}</td>
+                        <td>{{$deal->status->name}}</td>
                         <td>{{$deal->expectation}}</td>
                     </tr>
                 @endforeach

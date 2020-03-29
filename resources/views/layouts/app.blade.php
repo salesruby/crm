@@ -241,7 +241,6 @@
                     @yield('page-title-row')
 
                     <div class="container-fluid">
-                        {{--<div class="row" style="padding: 0px 20px 0px 20px;">--}}
                         <div class="col-xl-12">
                             @yield('stats')
                         </div>
