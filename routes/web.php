@@ -30,9 +30,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('leads','LeadController');
     Route::resource('products','ProductController');
     Route::resource('statuses','StatusController');
-    Route::get('deals/all', 'DealController@all')->name('deals.all');
+    Route::get('deals/index', 'DealController@index')->name('deals.index');
     Route::get('deals/open', 'DealController@open')->name('deals.open');
     Route::get('deals/closed', 'DealController@closed' )->name('deals.closed');
+    Route::get('deals/search', 'DealController@search' )->name('deals.search');
 //protect the pending route
     Route::get('deals/pending', 'DealController@pending')->name('deals.pending');
     Route::get('deals/{id}/confirm', 'DealController@confirmDeal')->name('confirm');

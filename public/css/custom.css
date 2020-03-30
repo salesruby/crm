@@ -89,3 +89,25 @@
     margin: 0px 0px 20px 0px;
     height: 110px;
 }
+
+
+/*SEARCH*/
+
+.product-search{
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px 15px 20px 15px ;
+    background-color: #30419b;
+    color: white;
+    /*font-size: 1.2rem;*/
+}
+
+.product-search div{
+    padding-right: 20px;
+    margin: 0px;
+}
+
+.product-search:first-child{
+    padding-left: 30px;
+    font-weight: normal;
+}

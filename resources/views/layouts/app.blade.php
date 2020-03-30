@@ -102,19 +102,20 @@
                     </ul>
 
                     <ul class="list-inline menu-left mb-0">
+                        {{--<li class="float-left">--}}
                         <li class="float-left">
                             <button class="button-menu-mobile open-left waves-effect">
                                 <i class="mdi mdi-menu"></i>
                             </button>
                         </li>
-                        <li class="d-none d-md-inline-block">
-                            <form role="search" class="app-search">
-                                <div class="form-group mb-0">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <button type="submit"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                        </li>
+                        {{--<li class="d-none d-md-inline-block">--}}
+                        {{--<form role="search" class="app-search">--}}
+                        {{--<div class="form-group mb-0">--}}
+                        {{--<input type="text" class="form-control" placeholder="Search...">--}}
+                        {{--<button type="submit"><i class="fa fa-search"></i></button>--}}
+                        {{--</div>--}}
+                        {{--</form>--}}
+                        {{--</li>--}}
                     </ul>
 
                 </nav>
@@ -168,10 +169,11 @@
                                                 class="float-right menu-arrow"><i
                                                     class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="{{route('deals.all')}}">All</a></li>
+                                    <li><a href="{{route('deals.index')}}">All</a></li>
                                     <li><a href="{{route('deals.open')}}">Open</a></li>
                                     <li><a href="{{route('deals.closed')}}">Closed</a></li>
-                                    <li class="{{!Auth::user()->hasRole('Account') ? 'hide' : ''}}" ><a href="{{route('deals.pending')}}">Pending</a></li>
+                                    <li class="{{!Auth::user()->hasRole('Account') ? 'hide' : ''}}"><a
+                                                href="{{route('deals.pending')}}">Pending</a></li>
                                 </ul>
                             </li>
 
@@ -238,6 +240,37 @@
             {{--CONTENT--}}
             <div class="content-page">
                 <div class="content">
+                    <!-- Search Bar -->
+                    <div class="row product-search" style="margin-top: 20px;">
+                        <form class="form-inline" method="GET">
+                            <div class=" form-group row">
+                                <div>
+                                    <h5>Find Deal</h5>
+                                </div>
+                                <div>
+                                    <select class="form-control " name="product">
+                                        <option value="">All Products Available</option>
+                                        @foreach($products as $product)
+                                            <option value="{{$product->id}}" @php echo (isset($selected_product) && $selected_product === $product->id)?"selected":""; @endphp>{{$product->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" name="start_date"
+                                           onfocus="(this.type='date')" value="{{old('start_date')}}"
+                                           placeholder="Start Date">
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" onfocus="(this.type='date')"
+                                           name="closed_date" value="{{old('closed_date')}}" placeholder="Closed Date">
+                                </div>
+                                <div>
+                                    <button type="submit" class="form-control btn btn-success">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    {{--END OF SEARCH--}}
                     @yield('page-title-row')
 
                     <div class="container-fluid">
@@ -247,13 +280,13 @@
                     </div>
                     <div class="container-fluid">
                         {{--<div class="row">--}}
-                            <div class="col-xl-12">
-                                <div class="card m-b-30">
-                                    <div class="card-body">
-                                        @yield('content')
-                                    </div>
+                        <div class="col-xl-12">
+                            <div class="card m-b-30">
+                                <div class="card-body">
+                                    @yield('content')
                                 </div>
                             </div>
+                        </div>
                         {{--</div>--}}
                     </div>
                 </div>

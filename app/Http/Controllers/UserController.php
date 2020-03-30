@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Deal;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
-use App\Lead;
 
 
 class UserController extends Controller
@@ -77,7 +74,7 @@ class UserController extends Controller
         $total_expectation = $deals->sum('expectation');
         $revenue = [];
         foreach($deals as $deal ) {
-            if ($deal->status->alias == 'won') {
+            if ($deal->status->name == 'Won') {
                 $revenue[] = $deal->expectation;
             }
         }

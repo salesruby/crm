@@ -11,7 +11,7 @@ namespace App\Service;
 
 class Select
 {
-    public function showSelected($info, $text){
+    public static function showSelected($info, $text){
         return $info === $text ? "selected" : "";
     }
 }

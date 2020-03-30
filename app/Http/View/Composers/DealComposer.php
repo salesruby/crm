@@ -10,6 +10,7 @@ namespace App\Http\View\Composers;
 
 
 use App\Lead;
+use App\Product;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -28,7 +29,8 @@ class DealComposer
 
     public function compose(View $view){
         $authenticated_user = Auth::user();
+        $products = Product::all();
 
-        $view->with(compact('authenticated_user'));
+        $view->with(compact('authenticated_user', 'products'));
     }
 }

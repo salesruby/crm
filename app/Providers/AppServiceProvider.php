@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['leads.create'], 'App\Http\View\Composers\DealComposer');
+        View::composer(['leads.create', '*'], 'App\Http\View\Composers\DealComposer');
     }
 }
