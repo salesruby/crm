@@ -42,7 +42,7 @@
                     <label>Alias:</label>
                     <select name="alias" class="form-control">
                         <option value="open">Open</option>
-                        <option value="close">Closed</option>
+                        <option value="closed">Closed</option>
                     </select>
                 </div>
             </div>

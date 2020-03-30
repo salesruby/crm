@@ -28,6 +28,7 @@ class CreateTableDeals extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('start_date');
             $table->date('close_date');
+            $table->unsignedInteger('confirmed')->default(0);
             $table->timestamps();
         });
     }

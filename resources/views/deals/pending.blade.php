@@ -77,6 +77,11 @@
 @endsection
 
 @section('content')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <div class="row">
         <div class="table-responsive">
             <table class="table table-hover">
@@ -87,21 +92,23 @@
                     <th scope="col">Product</th>
                     <th scope="col">Status</th>
                     <th scope="col">Expectations</th>
-                    <th scope="col">Acct Status</th>
+                    <th scope="col" class="{{!Auth::user()->hasRole('Account') ? 'hide' : ''}}">Confirm Deal</th>
                 </tr>
                 </thead>
                 <tbody>
                 @php
                     $i = 0;
                 @endphp
-                @foreach($closed_deals as $closed_deal)
+                @foreach($closed_deals as $deal)
                     <tr>
                         <td>{{++$i}}</td>
-                        <td>{{$closed_deal->lead->first_name}} {{$closed_deal->lead->last_name}}</td>
-                        <td>{{$closed_deal->product->name}}</td>
-                        <td>{{$closed_deal->status->name}}</td>
-                        <td>{{$closed_deal->expectation}}</td>
-                        <td>@php echo $closed_deal->confirmed ? 'Confirmed':'Pending'; @endphp</td>
+                        <td>{{$deal->lead->first_name}} {{$deal->lead->last_name}}</td>
+                        <td>{{$deal->product->name}}</td>
+                        <td>{{$deal->status->name}}</td>
+                        <td>{{$deal->expectation}}</td>
+                        <td class="{{!Auth::user()->hasRole('Account') ? 'hide' : ''}}">
+                            <a class="btn btn-success confirm-deal" href="{{route('confirm', $deal->id)}}">Confirm</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

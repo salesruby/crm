@@ -29,6 +29,9 @@
             }
         })
 
+        $('.confirm-deal').on('click', function(){
+            window.confirm('Click ok to confirm this deal');
+        })
 
 
     })

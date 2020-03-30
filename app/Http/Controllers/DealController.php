@@ -15,14 +15,14 @@ class DealController extends Controller
     }
 
     public function all(){
-        $deals = $this->deals;
+        $deals = $this->userDeal();
         return view('deals.all')->with(compact('deals'));
     }
 
     public function open(){
-
+        $deals = $this->userDeal();
         $open_deals = [];
-        foreach ($this->deals as $deal){
+        foreach ($deals as $deal){
             if($deal->status->alias == 'open'){
                 $open_deals[]= $deal;
             }
@@ -31,8 +31,9 @@ class DealController extends Controller
     }
 
     public function closed(){
+        $deals = $this->userDeal();
         $closed_deals = [];
-        foreach ($this->deals as $deal){
+        foreach ($deals as $deal){
             if($deal->status->alias == 'closed'){
                 $closed_deals[]= $deal;
             }
@@ -40,7 +41,40 @@ class DealController extends Controller
         return view('deals.closed')->with(compact('closed_deals'));
     }
 
-    public function deadline(){
-        return view('deals.deadline');
+//    public function deadline(){
+//        return view('deals.deadline');
+//    }
+
+    public function pending(){
+        $deals = $this->userDeal();
+        $closed_deals = [];
+        foreach ($deals as $deal){
+            if($deal->confirmed === 0 && $deal->status->alias == 'closed'){
+                $closed_deals[] = $deal;
+            }
+        }
+        return view('deals.pending')->with(compact('closed_deals'));
+    }
+
+    public function confirmDeal($id){
+        Deal::where('id', $id)
+            ->update(['confirmed' => 1]);
+
+        return redirect()->route('deals.all')
+            ->with('success', 'Deal confirmed');
+    }
+
+
+    public function userDeal(){
+        $user = auth()->user();
+
+        $user_deals = $user->deals;
+
+        if (!$user->isSalesRep()){
+            $user_deals = $this->deals;
+        }
+
+        return $user_deals;
     }
 }
+

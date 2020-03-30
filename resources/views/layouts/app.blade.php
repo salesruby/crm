@@ -152,7 +152,7 @@
                                 </ul>
                             </li>
 
-                            <li>
+                            <li class="{{!Auth::user()->hasRole('Sales') ? 'hide' : ''}}">
                                 <a href="javascript:void(0);" class="waves-effect"><i
                                             class="mdi mdi-chart-line"></i><span> Tasks <span
                                                 class="float-right menu-arrow"><i
@@ -171,12 +171,12 @@
                                     <li><a href="{{route('deals.all')}}">All</a></li>
                                     <li><a href="{{route('deals.open')}}">Open</a></li>
                                     <li><a href="{{route('deals.closed')}}">Closed</a></li>
-                                    <li><a href="{{route('deals.deadline')}}">Deadline</a></li>
+                                    <li class="{{!Auth::user()->hasRole('Account') ? 'hide' : ''}}" ><a href="{{route('deals.pending')}}">Pending</a></li>
                                 </ul>
                             </li>
 
 
-                            <li class="{{ Auth::user()->hasRole('Sales') ? 'hide' : ''}}">
+                            <li class="{{!Auth::user()->hasRole('Admin') ? 'hide' : ''}}">
                                 <a href="javascript:void(0);" class="waves-effect"><i
                                             class="mdi mdi-account-group"></i> <span>Users<span
                                                 class="float-right menu-arrow"><i
@@ -188,7 +188,7 @@
                                 </ul>
                             </li>
 
-                            <li class="{{Auth::user()->hasRole('Sales') ? 'hide' : ''}}">
+                            <li class="{{!Auth::user()->hasRole('Admin') ? 'hide' : ''}}">
                                 <a href="javascript:void(0);" class="waves-effect"><i
                                             class="mdi mdi-package-variant"></i> <span> Products <span
                                                 class="float-right menu-arrow"><i
@@ -200,7 +200,7 @@
                                 </ul>
                             </li>
 
-                            <li class="{{Auth::user()->hasRole('Sales') ? 'hide' : ''}}">
+                            <li class="{{!Auth::user()->hasRole('Admin') ? 'hide' : ''}}">
                                 <a href="javascript:void(0);" class="waves-effect"><i
                                             class="mdi mdi-account-card-details"></i> <span> Roles <span
                                                 class="float-right menu-arrow"><i
@@ -212,7 +212,7 @@
                                 </ul>
                             </li>
 
-                            <li class="{{Auth::user()->hasRole('Sales') ? 'hide' : ''}}">
+                            <li class="{{!Auth::user()->hasRole('Admin') ? 'hide' : ''}}">
                                 <a href="javascript:void(0);" class="waves-effect"><i
                                             class="mdi mdi-orbit"></i> <span>Status<span
                                                 class="float-right menu-arrow"><i

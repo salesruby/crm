@@ -44,8 +44,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Deal');
     }
 
-    public function leads()
-    {
+    public function leads(){
         return $this->belongsToMany('App\Lead', 'lead_user', 'user_id', 'lead_id')->withTimestamps();;
+    }
+
+    public function isSalesRep(){
+        return $this->hasRole('Sales');
     }
 }
