@@ -1,13 +1,17 @@
 @extends('layouts.app')
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <div class="col-sm-11">
-                <h5>Role Details</h5>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">{{$role->name}} Details</h4>
             </div>
-            <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            </span>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">Roles</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{$role->name}} Details</li>
+                </ol>
+            </div>
         </div>
     </div>
 @endsection

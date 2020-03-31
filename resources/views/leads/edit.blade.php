@@ -2,11 +2,17 @@
 
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <h5 class="col-sm-11 ">Edit Lead</h5>
-            <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
-            </span>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">Edit {{ $lead->last_name }}</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="{{ route('leads.index') }}">Leads</a>
+                    </li>
+                    <li class="breadcrumb-item active">Edit {{ $lead->last_name }} </li>
+                </ol>
+            </div>
         </div>
     </div>
 @endsection
@@ -41,6 +47,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+
                     <strong>Detail:</strong>
                     <textarea class="form-control" style="height:150px" name="detail"
                               placeholder="Detail">{{ $lead->detail }}</textarea>

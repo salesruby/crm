@@ -1,13 +1,17 @@
 @extends('layouts.app')
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <div class="col-sm-11">
-                <h5>Role Management</h5>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">All Roles</h4>
             </div>
-            {{--@can('role-create')--}}
-            {{--<a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>--}}
-            {{--@endcan--}}
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Roles</a>
+                    </li>
+                    <li class="breadcrumb-item active">All Roles </li>
+                </ol>
+            </div>
         </div>
     </div>
 @endsection

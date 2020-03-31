@@ -2,12 +2,16 @@
 
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <div class="col-sm-11">
-                <h5>Lead Details</h5>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">{{ $lead->last_name }}'s Deals</h4>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('leads.index') }}"> Back</a>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="{{ route('leads.index') }}">Leads</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{ $lead->last_name }}'s Deals </li>
+                </ol>
             </div>
         </div>
     </div>
@@ -20,12 +24,7 @@
                 <p>{{$message}}</p>
             </div>
         @endif
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {{ $lead->first_name }} {{ $lead->last_name }}
-            </div>
-        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Details:</strong>

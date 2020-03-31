@@ -2,14 +2,17 @@
 
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <div class="col-sm-11">
-                <h5>Add New Product</h5>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">Add Product</h4>
             </div>
-            <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-            </span>
-
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Products</a>
+                    </li>
+                    <li class="breadcrumb-item active">Add Products </li>
+                </ol>
+            </div>
         </div>
     </div>
 @endsection

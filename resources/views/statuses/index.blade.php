@@ -1,9 +1,16 @@
 @extends('layouts.app')
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <div class="col-sm-12">
-                <h5>Manage Status</h5>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">All Statuses</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Statuses</a>
+                    </li>
+                    <li class="breadcrumb-item active">All Status</li>
+                </ol>
             </div>
         </div>
     </div>

@@ -1,11 +1,17 @@
 @extends('layouts.app')
 @section('page-title-row')
 <div class="page-title-box">
-    <div class="row">
-        <h5 class="col-sm-11 ">Chat</h5>
-        <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('leads.show', $lead_id) }}"> Back</a>
-            </span>
+    <div class="row align-items-center">
+        <div class="col-sm-6">
+            <h4 class="page-title">Chat Summary</h4>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="{{ route('leads.index') }}">Leads</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('leads.show', $lead_id) }}">Lead Deals</a></li>
+                <li class="breadcrumb-item active">Chat Summary</li>
+            </ol>
+        </div>
     </div>
 </div>
 @endsection

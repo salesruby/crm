@@ -2,13 +2,17 @@
 
 @section('page-title-row')
     <div class="page-title-box">
-        <div class="row">
-            <div class="col-sm-11">
-                <h5>Edit User</h5>
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">Edit {{$user->name}}</h4>
             </div>
-            <span class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-            </span>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Users</a>
+                    </li>
+                    <li class="breadcrumb-item active">Edit {{$user->name}}</li>
+                </ol>
+            </div>
         </div>
     </div>
 @endsection

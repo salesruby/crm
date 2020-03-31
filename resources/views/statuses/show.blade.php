@@ -1,12 +1,16 @@
 @extends('layouts.app')
 @section('page-title-row')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h5>Product Details</h5>
+    <div class="page-title-box">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h4 class="page-title">{{$status->name}} Details</h4>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('statuses.index') }}"> Back</a>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-right">
+                    <li class="breadcrumb-item"><a href="{{ route('statuses.index') }}">Statuses</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{$status->name}} Details</li>
+                </ol>
             </div>
         </div>
     </div>
