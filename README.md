@@ -1,4 +1,4 @@
-### CRM Sales Ruby Limited 2.0
+### CRM Sales Ruby Limited 1.0
 
 ### Web Development Team Sales Ruby
 
