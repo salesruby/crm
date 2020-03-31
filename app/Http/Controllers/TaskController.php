@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     public function index(){
-        $tasks = Chat::all();
+        $tasks = Chat::where('user_id', auth()->user()->id)->get();
         $today_tasks = [];
         $tomorrow_tasks = [];
         foreach ($tasks as $task){

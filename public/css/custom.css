@@ -84,11 +84,35 @@
     margin-bottom: 5px;
 }
 
-.user-card{
+.user-card, .dashboard-card{
     padding: 10px 10px 0px 10px;
     margin: 0px 0px 20px 0px;
     height: 110px;
 }
+
+.dashboard-card{
+    background-color: #EEEEEE;
+    min-height: 170px;
+    margin: 50px 0px 50px 0px;
+}
+
+.dashboard-card span.mdi{
+    font-size: 50px;
+    /*text-align: center;*/
+}
+
+.dashboard-card span.float-right{
+    padding: 20px 20px 0px 20px;
+    font-size: 20px;
+    /*text-align: center;*/
+}
+
+.dashboard-title{
+    border-bottom: solid thin #DDDDDD;
+    /*background-color: #CCCCCC;*/
+    /*font-size: large;*/
+}
+
 
 
 /*SEARCH*/
