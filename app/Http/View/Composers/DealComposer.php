@@ -17,20 +17,12 @@ use Illuminate\View\View;
 
 class DealComposer
 {
-    protected $users;
-//    protected $leads;
-
-    public function __construct(User $users)
-    {
-        $this->users = $users;
-//        $this->leads = $leads;
-    }
-
 
     public function compose(View $view){
         $authenticated_user = Auth::user();
+        $users = User::role('Sales')->get();
         $products = Product::all();
 
-        $view->with(compact('authenticated_user', 'products'));
+        $view->with(compact('authenticated_user', 'products', 'users'));
     }
 }

@@ -20,4 +20,7 @@ class Lead extends Model
             ->withTimestamps();
     }
 
+    public function chat(){
+        return $this->hasMany('App\Chat')->latest()->limit(1);
+    }
 }

@@ -8,6 +8,7 @@ use App\Lead;
 use App\Product;
 use App\User;
 use App\Deal;
+use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 
@@ -134,16 +135,22 @@ class LeadController extends Controller
 
 
     /**
-     * @param LeadRequest $request
      * @param Lead $lead
+     * @param Request $request
      * @return $this
      */
-    public function update(LeadRequest $request, Lead $lead)
+    public function update(Lead $lead, Request $request)
     {
-        $input = $request->validated();
+        $input = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|unique:leads,email,'. $lead->id .',id',
+            'phone' => 'required|max:20',
+            'company_name' => 'required',
+            'designation' => 'required',
+        ]);
 
         $lead->update($input);
-
 
         return redirect()->route('leads.index')
             ->with('success', 'Lead updated successfully');

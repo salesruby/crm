@@ -35,28 +35,60 @@
         @csrf
         @method('PUT')
 
-
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" value="{{ $lead->name }}"
-                           class="form-control"
-                           placeholder="Name">
+                    <strong>First Name:</strong>
+                    <input type="text" name="first_name" class="form-control" placeholder="First Name"
+                           value="{{$lead->first_name}}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
 
-                    <strong>Detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail"
-                              placeholder="Detail">{{ $lead->detail }}</textarea>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Last Name:</strong>
+                    <input type="text" name="last_name" class="form-control" placeholder="Last Name"
+                           value="{{$lead->last_name}}">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Email:</strong>
+                    <input type="email" name="email" class="form-control" placeholder="Email"
+                           value="{{$lead->email}}">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Phone:</strong>
+                    <input type="text" name="phone" class="form-control" placeholder="Phone Number"
+                           value="{{$lead->phone}}">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Company Name:</strong>
+                    <input type="text" name="company_name" class="form-control" placeholder="Company Name"
+                           value="{{$lead->company_name}}">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Designation:</strong>
+                    <input type="text" name="designation" class="form-control"
+                           placeholder="Designation" value="{{$lead->designation}}">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 ">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
+
     </form>
 
 @endsection
