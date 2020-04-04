@@ -62,5 +62,5 @@
     </div>
 
 
-    {!! $leads->links() !!}
+    {{--{!! $leads->links() !!}--}}
 @endsection

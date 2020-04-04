@@ -18,4 +18,8 @@ class Product extends Model
         return $this->hasMany(Chat::class, 'product_id');
     }
 
+//    public function chats(){
+//        return $this->hasManyThrough();
+//    }
+
 }

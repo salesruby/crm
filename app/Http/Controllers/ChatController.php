@@ -11,13 +11,13 @@ class ChatController extends Controller
 {
     /**
      * @param $lead_id
-     * @param $product_id
+     * @param $deal_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
-    public function showForm($lead_id, $product_id){
+    public function showForm($lead_id, $deal_id){
         $user_id = Auth::user()->id;
-        return view('chats.create', compact('lead_id', 'product_id', 'user_id'));
+        return view('chats.create', compact('lead_id', 'deal_id', 'user_id'));
     }
 
     /**

@@ -49,19 +49,6 @@ class DealController extends Controller
     }
 
 
-//    public function userDeal(){
-//        $user = auth()->user();
-//
-//        $user_deals = $this->deals->where('user_id', $user->id);
-//
-//        if (!$user->isSalesRep()){
-//            $user_deals = $this->deals;
-//        }
-//
-//        return $user_deals;
-//
-//    }
-
     public function search(Request $request){
 
         $user = auth()->user();

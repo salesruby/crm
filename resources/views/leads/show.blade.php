@@ -39,7 +39,6 @@
         </div>
     </div>
     @foreach($lead->deals as $deal)
-{{--        {{dd($deal->product->name, $deal->user->name)}}--}}
         <div class="lead-product">
             <div class="panel panel-default">
                 <div class="row panel-heading">
@@ -53,7 +52,7 @@
                     <div class="pull-right col-md-4">
                         <a class="btn btn-info" data-toggle="collapse" data-target="#chat{{$deal->product->id}}" >Show</a>
                         <a class="btn btn-warning"
-                           href="{{ route('chats.create', array($lead->id, $deal->product->id))}}">Chat</a>
+                           href="{{ route('chats.create', array($lead->id, $deal->id))}}">Chat</a>
                         <a class="btn btn-outline-success"
                            href="{{ route('product_status.edit', array($lead->id, $deal->product->id))}}">Status</a>
                     </div>
@@ -74,7 +73,7 @@
                                     $i = 0;
                                 @endphp
 
-                                @foreach($deal->product->chats as $chat)
+                                    @foreach($deal->chats->sortByDesc('created_at') as $chat)
                                     <tr>
                                         <td>{{++$i}}</td>
                                         <td>{{$chat->summary}}</td>

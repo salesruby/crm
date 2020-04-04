@@ -32,7 +32,14 @@ class LeadController extends Controller
      */
     public function index()
     {
-        $leads = Lead::latest()->paginate(5);
+        $user = auth()->user();
+
+        if (!$user->isSalesRep()){
+            $leads = Lead::latest()->paginate(5);
+        }else{
+            $leads = $user->leads;
+        }
+
         return view('leads.index', compact('leads'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -79,7 +86,7 @@ class LeadController extends Controller
         // Save to deals table
         foreach ($input['product_ids'] as $key => $productId) {
             $product = Product::find($productId);
-            Deal::create([
+            $deal = Deal::create([
                 'expectation' => $product->price,
 //                   'quantity' => "",
 //                   'total_expectation' => "",
@@ -95,7 +102,7 @@ class LeadController extends Controller
                 'lead_id' => $lead->id,
                 'user_id' => $user->id,
                 'status' => 0,
-                'product_id' => $productId,
+                'deal_id' => $deal->id,
                 'summary' => 'New lead',
                 'next_dated_step' =>$input['next_dated_step'],
                 'action' => 'Call or Mail '.$input['first_name'] .' '.$input['last_name']
@@ -116,9 +123,13 @@ class LeadController extends Controller
      * @param  \App\Lead $lead
      * @return \Illuminate\Http\Response
      */
+
+
     public function show(Lead $lead)
     {
-        return view('leads.show', compact('lead', 'chats'));
+//        i removed chats variable in the compact
+
+        return view('leads.show', compact('lead'));
     }
 
 

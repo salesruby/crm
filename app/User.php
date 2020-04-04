@@ -51,4 +51,5 @@ class User extends Authenticatable
     public function isSalesRep(){
         return $this->hasRole('Sales');
     }
+
 }
