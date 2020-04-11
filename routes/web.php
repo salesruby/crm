@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('deals/search', 'DealController@search' )->name('deals.search');
 //protect the pending route
     Route::get('deals/pending', 'DealController@pending')->name('deals.pending');
-    Route::get('deals/{id}/confirm', 'DealController@confirmDeal')->name('confirm');
+    Route::get('deals/{id}/confirm', 'DealController@confirm')->name('confirm');
     Route::get('chats/{lead_id}/deal/{deal_id}','ChatController@showForm')->name('chats.create');
     Route::post('chats/store','ChatController@storeChat')->name('chats.store');
     Route::get('status/{lead_id}/product/{product_id}','ProductStatusController@showForm')->name('product_status.edit');

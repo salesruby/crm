@@ -20,6 +20,7 @@ class DealController extends Controller
         return view('deals.all')->with(compact('deals', 'selected_product'));
     }
 
+
     public function open(Request $request){
         $selected_product = (int)$request->product;
         $open_deals = $this->search($request)->whereIn('status_id', [1, 2, 3])->get();
@@ -40,11 +41,11 @@ class DealController extends Controller
         return view('deals.pending')->with(compact('closed_deals', 'selected_product'));
     }
 
-    public function confirmDeal($id){
+    public function confirm($id){
         Deal::where('id', $id)
             ->update(['confirmed' => 1]);
 
-        return redirect()->route('deals.all')
+        return redirect()->route('deals.closed')
             ->with('success', 'Deal confirmed');
     }
 
