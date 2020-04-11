@@ -19,8 +19,8 @@ class CreateLeadsTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->string('company_name');
-            $table->string('designation');
+            $table->string('company_name')->nullable();
+            $table->string('designation')->nullable();
             $table->timestamps();
         });
     }

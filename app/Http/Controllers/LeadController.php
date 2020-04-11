@@ -75,44 +75,14 @@ class LeadController extends Controller
             'designation' => $input['designation']
         ]);
 
-        // Save to lead_product table
-        $lead->products()->attach($input['product_ids']);
 
         $user = User::find($input['user_id']);
 
         // Save to lead_user table
         $user->leads()->attach($lead->id);
 
-        // Save to deals table
-        foreach ($input['product_ids'] as $key => $productId) {
-            $product = Product::find($productId);
-            $deal = Deal::create([
-                'expectation' => $product->price,
-//                   'quantity' => "",
-//                   'total_expectation' => "",
-                'lead_id' => $lead->id,
-                'user_id' => $user->id,
-                'status_id' => 1,
-                'product_id' => $productId,
-                'start_date' => now(),
-                'close_date' => now()
-            ]);
-
-            Chat::create([
-                'lead_id' => $lead->id,
-                'user_id' => $user->id,
-                'status' => 0,
-                'deal_id' => $deal->id,
-                'summary' => 'New lead',
-                'next_dated_step' =>$input['next_dated_step'],
-                'action' => 'Call or Mail '.$input['first_name'] .' '.$input['last_name']
-            ]);
-
-        }
-
         return redirect()->route('leads.index')
             ->with('success', 'Lead created successfully.');
-
 
     }
 

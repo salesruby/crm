@@ -108,6 +108,60 @@
                 {{--</div>--}}
             @endif
 
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <strong>Product Name:</strong>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <strong>Product Expectation:</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($products as $product)
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <label>
+                                <input name="product_ids[]" value={{$product->id}} type="checkbox" />
+                                {{$product->name}}
+                            </label>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <span>{{$product->price}}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <!-- </div>
+                <div class="form-group">
+                    <strong>Product:</strong>
+                    @foreach($products as $product)
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                        </div>
+                    @endforeach
+                    <input class="form-control" type="number" name="expectation" value="{{old("expectation")}}"
+                           placeholder="Enter Deal Expectation">
+                </div>
+            </div> -->
+
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Next Dated Step:</strong>
+                    <input class="form-control" type="datetime-local" name="next_dated_step"
+                           value="{{old("next_dated_step")}}" placeholder="Next Dated Step">
+                </div>
+            </div>
+
+            <!-- <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <strong>Product</strong>
+                    <select name="product_id[]" multiple>
+                        @foreach($products as $product)
+                            <option value={{$product->id}}>{{$product->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div> -->
+
             <div class="col-xs-12 col-sm-12 col-md-4 ">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
