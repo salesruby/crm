@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LeadRequest extends FormRequest
+class DealRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,8 @@ class LeadRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|unique:leads,email',
-            'user_id' => 'required',
-            'phone' => 'required|max:20',
-            'company_name' => 'nullable',
-            'designation' =>'nullable'
+            'next_dated_step' => 'required',
+            'product_ids' => 'required|array'
         ];
     }
 }
