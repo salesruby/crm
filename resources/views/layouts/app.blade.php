@@ -108,14 +108,6 @@
                                 <i class="mdi mdi-menu"></i>
                             </button>
                         </li>
-                        {{--<li class="d-none d-md-inline-block">--}}
-                        {{--<form role="search" class="app-search">--}}
-                        {{--<div class="form-group mb-0">--}}
-                        {{--<input type="text" class="form-control" placeholder="Search...">--}}
-                        {{--<button type="submit"><i class="fa fa-search"></i></button>--}}
-                        {{--</div>--}}
-                        {{--</form>--}}
-                        {{--</li>--}}
                     </ul>
 
                 </nav>
@@ -149,6 +141,7 @@
 
                                 <ul class="submenu">
                                     <li><a href="{{route('leads.create')}}">Add Lead</a></li>
+                                    <li><a href="{{route('leads.upload')}}">Add Bulk Leads</a></li>
                                     <li><a href="{{route('leads.index')}}">Manage Leads</a></li>
                                 </ul>
                             </li>

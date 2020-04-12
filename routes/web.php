@@ -29,6 +29,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
+//  Just add a route to that method separately, before you register the resource
+    Route::get('leads/upload', 'LeadController@upload')->name('leads.upload');
+    Route::post('leads/upload/post', 'LeadController@uploadPost')->name('leads.upload.post');
     Route::resource('leads','LeadController');
     Route::resource('products','ProductController');
     Route::resource('statuses','StatusController');

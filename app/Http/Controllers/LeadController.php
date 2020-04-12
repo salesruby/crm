@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Chat;
 use App\Http\Requests\LeadRequest;
+use App\Imports\LeadsImport;
 use App\Lead;
 use App\Product;
 use App\User;
 use App\Deal;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
 
 
@@ -139,10 +141,9 @@ class LeadController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Lead $lead
-     * @return \Illuminate\Http\Response
+     * @param Lead $lead
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Lead $lead)
     {
@@ -152,4 +153,23 @@ class LeadController extends Controller
         return redirect()->route('leads.index')
             ->with('success', 'Lead deleted successfully');
     }
+
+    public function upload(){
+        return view('leads.upload');
+    }
+
+    public function uploadPost(Request $request){
+        $request->validate([
+           'file' => 'required|mimes:xlx,xlsx,csv,ods|max:2048'
+        ]);
+
+        $fileName = time(). '.' .$request->file->extension();
+        $request->file->move(public_path('uploads'), $fileName);
+
+        Excel::import(new LeadsImport, 'uploads/'.$fileName);
+
+        return redirect()->route('leads.index')
+            ->with('success', 'Leads uploaded successfully');
+    }
+
 }
